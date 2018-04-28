@@ -1,0 +1,209 @@
+/*-------------------------*\
+|
+| ***** GENERAL
+|
+\*-------------------------*/
+
+body
+{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #200 0%, rgb(223, 44, 44) 100%);
+    overflow: hidden;
+    cursor: default;
+    user-select: none;
+}
+
+.clock
+{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 100px auto;
+    background: radial-gradient(circle at 100px 100px, #fff 0%, #ccc 50%, #666 100%);
+    border-radius: 200px;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.75);
+}
+
+.clock .border.front
+{
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    filter: drop-shadow(7.5px 7.5px 2.5px rgba(0, 0, 0, 0.75));
+}
+
+.clock .border.side
+{
+    position: absolute;
+    top: -47.5px;
+    left: -47.5px;
+}
+
+/*-------------------------*\
+|
+| ***** AXE
+|
+\*-------------------------*/
+
+.clock .axe
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.clock .needle
+{
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    width: 4px;
+    border-radius: 20px;
+    transform-origin: 50% calc(100% - 2px);
+    transition: all 0.125s cubic-bezier(0, 0.75, 1, 1.5);
+    will-change: transform;
+}
+
+.clock .needle.hours
+{
+    height: 100px;
+    background: #ccc;
+    transition: transform 0.25s ease-in-out;
+}
+
+.clock .needle.minutes
+{
+    height: 150px;
+    background: #ccc;
+}
+
+.clock .needle.seconds
+{
+    bottom: calc(-1px - 25px);
+    left: -1px;
+    width: 2px;
+    height: 150px;
+    background: #800;
+    transform-origin: 50% calc(100% - 1px - 25px);
+}
+
+.clock .needle.screw
+{
+    bottom: -4px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background: #444;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+    transform-origin: 50% 50%;
+    box-shadow: 2.5px 2.5px 5px rgba(0, 0, 0, 0.75);
+}
+
+/*-------------------------*\
+|
+| ***** NUMBERS
+|
+\*-------------------------*/
+
+.clock .numbers { color: #333; }
+
+.clock .number
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.clock .number:nth-child(3n)
+{
+    color: #800;
+    font-size: 24px;
+}
+
+.clock .number.number1 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 1)) translateY(-175px) rotateZ(calc(-360deg / 12 * 1)); }
+.clock .number.number2 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 2)) translateY(-175px) rotateZ(calc(-360deg / 12 * 2)); }
+.clock .number.number3 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 3)) translateY(-175px) rotateZ(calc(-360deg / 12 * 3)); }
+.clock .number.number4 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 4)) translateY(-175px) rotateZ(calc(-360deg / 12 * 4)); }
+.clock .number.number5 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 5)) translateY(-175px) rotateZ(calc(-360deg / 12 * 5)); }
+.clock .number.number6 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 6)) translateY(-175px) rotateZ(calc(-360deg / 12 * 6)); }
+.clock .number.number7 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 7)) translateY(-175px) rotateZ(calc(-360deg / 12 * 7)); }
+.clock .number.number8 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 8)) translateY(-175px) rotateZ(calc(-360deg / 12 * 8)); }
+.clock .number.number9 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 9)) translateY(-175px) rotateZ(calc(-360deg / 12 * 9)); }
+.clock .number.number10 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 10)) translateY(-175px) rotateZ(calc(-360deg / 12 * 10)); }
+.clock .number.number11 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 11)) translateY(-175px) rotateZ(calc(-360deg / 12 * 11)); }
+.clock .number.number12 { transform: translate(-50%, -50%) rotateZ(calc(360deg / 12 * 12)) translateY(-175px) rotateZ(calc(-360deg / 12 * 12)); }
+
+/*-------------------------*\
+|
+| ***** DOTS
+|
+\*-------------------------*/
+
+.clock .dots
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.clock .space
+{
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    top: -1.5px;
+    left: -1.5px;
+    transform-origin: 50% 50%;
+}
+
+.clock .space.space1 { transform: rotateZ(calc(30deg * (1 - 1))) translateY(-175px); }
+.clock .space.space2 { transform: rotateZ(calc(30deg * (2 - 1))) translateY(-175px); }
+.clock .space.space3 { transform: rotateZ(calc(30deg * (3 - 1))) translateY(-175px); }
+.clock .space.space4 { transform: rotateZ(calc(30deg * (4 - 1))) translateY(-175px); }
+.clock .space.space5 { transform: rotateZ(calc(30deg * (5 - 1))) translateY(-175px); }
+.clock .space.space6 { transform: rotateZ(calc(30deg * (6 - 1))) translateY(-175px); }
+.clock .space.space7 { transform: rotateZ(calc(30deg * (7 - 1))) translateY(-175px); }
+.clock .space.space8 { transform: rotateZ(calc(30deg * (8 - 1))) translateY(-175px); }
+.clock .space.space9 { transform: rotateZ(calc(30deg * (9 - 1))) translateY(-175px); }
+.clock .space.space10 { transform: rotateZ(calc(30deg * (10 - 1))) translateY(-175px); }
+.clock .space.space11 { transform: rotateZ(calc(30deg * (11 - 1))) translateY(-175px); }
+.clock .space.space12 { transform: rotateZ(calc(30deg * (12 - 1))) translateY(-175px); }
+
+.clock .dot
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 50%;
+    transform-origin: 50% calc(100% + 175px);
+}
+
+.clock .dot.dot1 { transform: rotateZ(calc(6deg * 1)); }
+.clock .dot.dot2 { transform: rotateZ(calc(6deg * 2)); }
+.clock .dot.dot3 { transform: rotateZ(calc(6deg * 3)); }
+.clock .dot.dot4 { transform: rotateZ(calc(6deg * 4)); }
+
+/*-------------------------*\
+|
+| ***** TITLE
+|
+\*-------------------------*/
+
+h1
+{
+    color: #fff;
+    font-size: 72px;
+    text-align: center;
+    text-shadow:
+        0.5px 0.5px 0 #333,
+        1px 1px 0 #333,
+        1.5px 1.5px 0 #333,
+        2px 2px 0 #333,
+        2.5px 2.5px 0 #333,
+        10px 10px 10px rgba(0, 0, 0, 0.75);
+}
